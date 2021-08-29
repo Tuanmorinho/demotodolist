@@ -4,6 +4,7 @@ import Project from './Project/Project'
 import Tasks from './Task/Tasks'
 
 export default class Main extends Component {
+    //Demo GIT
     render() {
         return (
             <section className="glass">
