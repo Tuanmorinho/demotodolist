@@ -1,0 +1,345 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+h1{
+	color: #426696;
+	font-weight: 600;
+	font-size: 3rem;
+	opacity: 0.8;
+}
+h2,
+p,
+a{
+	color: #658ec6;
+	font-weight: 400;
+	opacity: 0.8;
+}
+h3{
+	color: #426696;
+	font-weight: 600;
+	opacity: 0.8;
+}
+main{
+	font-family: 'Poppins', sans-serif;
+	min-height: 100vh; 
+	background: linear-gradient(to right top, #65dfc9, #6cdbed);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.glass,
+.glass2{
+	background: white;
+	height: 80vh;
+	width: 60%;
+	background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+	border-radius: 2rem;
+	z-index: 2;
+	backdrop-filter: blur(2rem);
+	display: flex;
+}
+.glass2{
+	width: 5%;
+	flex-direction: column;
+	margin-right: 20px;
+}
+.glass2 h1{
+	font-size: 1rem;
+	text-align: center;
+	padding-top: 50px;
+}
+.circle-glass1,
+.circle-glass2{
+	background: white;
+	background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+	position: absolute;
+	border-radius: 50%;
+}
+.circle-glass1{
+	height: 20rem;
+	width: 20rem;
+	top: 5%;
+	right: 12%;
+}
+.circle-glass2{
+	height: 17rem;
+	width: 17rem;
+	bottom: 5%;
+	left: 10%;
+}
+.dashboard{
+	flex: 0.1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	text-align: center;
+	background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+	border-radius: 2rem;
+}
+.dashboard h1{
+	margin-top: 50px;
+}
+.member{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	margin-top: 25px;
+}
+.member div{
+	padding-top: 15px;
+}
+.member img{
+	max-width: 40%;
+	max-height: 40%;
+	width: auto;
+	height: auto;
+}
+.member h3,p{
+	font-size: 0.9rem;
+}
+/* .link{
+	display: flex;
+	margin: 2rem 0rem;
+	padding: 1rem 5rem;
+	cursor: pointer;
+	color: #FFFFFF;
+    text-decoration: none;
+}
+.link__choose{
+	background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+}
+.link h2{
+	display: flex;
+	padding: 0rem 2rem;
+	text-align: left;
+	align-items: center;
+} */
+
+.listProject{
+	flex: 2;
+}
+.all{
+	overflow-y: scroll;
+	mask-image: linear-gradient(to top, transparent, black),
+    linear-gradient(to left, transparent 17px, black 17px);
+    mask-size: 100% 20000px;
+    mask-position: left bottom;
+    -webkit-mask-image: linear-gradient(to top, transparent, black),
+    linear-gradient(to left, transparent 17px, black 17px);
+    -webkit-mask-size: 100% 20000px;
+    -webkit-mask-position: left bottom;
+    transition: mask-position 0.3s, -webkit-mask-position 0.3s;
+
+	margin-bottom: 3rem;
+}
+.all:hover {
+	-webkit-mask-position: left top;
+	mask-position: left top;
+}
+::-webkit-scrollbar{
+	width: 6px;
+}
+::-webkit-scrollbar-track:hover{
+	background-color:rgba(0,0,0,.05);
+    box-shadow:inset 1px 0 0 rgba(0,0,0,.1)
+}
+::-webkit-scrollbar-thumb{
+	border: 1px;
+    background:rgba(0, 0, 0, .2);
+    box-shadow: inset 0 0 5px rgba(255,255,255,.1); 
+}
+::-webkit-scrollbar-thumb:window-inactive{
+	background: #fff;
+    border: 1px;
+}
+
+.pro{
+	background: linear-gradient(to right top, #65dfc9, #6cdbed);
+	border-radius: 2rem;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.pro img{
+	max-width: 50%;
+	max-height: 50%;
+	width: auto;
+	height: auto;
+	padding: 0rem 1rem;
+}
+.pro h2{
+	color: white;
+	font-weight: 600;
+	padding: 0rem 1rem;
+}
+
+/*TASKS*/
+.status{
+	max-height: 35px;
+	margin-bottom: 2rem;
+	margin-top: 0.7rem;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+/* .dropdown{
+	max-height: 35px;
+	background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+	border: none;
+	width: 25%;
+	padding: 0.6rem;
+	border-radius: 2rem;
+	margin-right: 2rem;
+}
+.dropdown__select{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+}
+.dropdown__select:hover{
+	opacity: 0.8;
+}
+.dropdown__select span{
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 520;
+	font-size: 13px;
+	color: #767576;
+	margin-left: 0.2rem;
+}
+.dropdown__select i{
+	color: #767576;
+} */
+
+.status input{
+	max-height: 35px;
+	background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+	border: none;
+	padding: 0.7rem;
+	margin-right: 1rem;
+	border-radius: 2rem;
+}
+.newProject{
+	width: 40%;
+}
+.newTask {
+	width: 25%;
+}
+.content{
+	width: 45%;
+}
+input:focus {
+	outline: none;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.05);
+}
+.status button{
+	max-height: 35px;
+	background: #426696;
+	opacity: 0.8;
+	color: white;
+	font-family: 'Poppins', sans-serif;
+	border: none;
+	width: 6.5rem;
+	padding: 0.7rem;
+	border-radius: 2rem;
+	margin-left: 15px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.add:hover{
+	opacity: 0.75;
+}
+.listProject{
+	margin-left: 4rem;
+	margin-right: 4rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+.listProject h1{
+	margin-top: 3rem;
+}
+
+.all{
+	border-radius: 1rem;
+}
+.card{
+	display: flex;
+	justify-content: space-between;
+	background: linear-gradient(to left top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.8));
+	border-radius: 1rem;
+	margin: 2rem 0rem;
+	margin-right: 1rem;
+	padding: 2rem;
+}
+.button{
+	display: flex;
+	align-items: center;
+}
+.card button{
+	opacity: 0.86;
+	color: white;
+	width: 4rem;
+	font-family: 'Poppins', sans-serif;
+	border: none;
+	padding: 0.35rem;
+	border-radius: 2rem;
+	margin-left: 15px;
+	cursor: pointer;
+	transition: opacity 0.2s ease;
+}
+.edit-task{
+	text-decoration: none;
+	background:#7CD6CB;
+}
+.edit-task:hover{
+	background: #5DA198;
+}
+.destroy{
+	background: #ED1C24;
+}
+.destroy:hover{
+	opacity: 0.75;
+}
+.status-task{
+	color: #658ec6;
+	padding: 0.4rem 0 0.4rem 0;
+	display: flex;
+	justify-content: flex-start;
+}
+.status-task div{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-size: 0.8rem;
+	padding: 0.2rem 1rem 0.2rem 1rem;
+	border-radius: 1rem;
+	margin-left: 15px;
+}
+.status-task1{
+	background-color: #F0678A;
+}
+.status-task1--disable{
+	opacity: 0.15;
+}
+.status-task2{
+	background-color: #FFB954;
+}
+.status-task2--disable{
+	opacity: 0.15;
+}
+.status-task3{
+	background-color: #78E388;
+}
+.status-task3--disable{
+	opacity: 0.15;	
+}
