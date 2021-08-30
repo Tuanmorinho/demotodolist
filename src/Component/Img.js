@@ -5,5 +5,6 @@ import avatar4 from '../img/avatar4.png'
 import project from '../img/project.png'
 import task from '../img/task.png'
 import todolist from '../img/todolist.png'
+import iconBack from '../img/icon_back.png'
 
-export { avatar1, avatar2, avatar3, avatar4, project, task, todolist };
+export { avatar1, avatar2, avatar3, avatar4, project, task, todolist, iconBack };

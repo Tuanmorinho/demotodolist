@@ -10,7 +10,7 @@ export default class ListProjectChild extends Component {
                     <div className="status-task">Tasks:&ensp;<span>{this.props.listProject.todolist.length}</span></div>
                 </div>
                 <div className="button">
-                    <Link to={"/" + this.props.listProject._id}><button onClick={() => this.props.getID(this.props.listProject._id)} className="edit-task">Open</button></Link>
+                    <Link to={"/" + this.props.listProject._id}><button className="edit-task">Open</button></Link>
                 </div>
             </div>
         )

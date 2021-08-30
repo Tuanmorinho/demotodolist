@@ -35,11 +35,11 @@ export default class Input extends Component {
         this.setState({ content: e.target.value });
     }
 
-    handleSubmit = (e) => {
-        e.preventDefault();
+    handleSubmit = () => {
         if (this.state.name === "" || this.state.content === "") {
-            alert('Please enter a task.');
+            this.props.addTask('null');
         } else {
+            this.props.addTask('clicked');
             this.addTask('/task/create', this.state).then(data => {
                 console.log(data);
             });
@@ -52,7 +52,7 @@ export default class Input extends Component {
             <div className="status">
                 <input onChange={this.handleGetTask} className="newTask" value={this.state.name} type="text" placeholder="New task" />
                 <input onChange={this.handleGetContent} className="content" value={this.state.content} type="text" placeholder="Content" />
-                <button onClick={this.handleSubmit} className="add" type="button">Add task</button>
+                <button onClick={(value) => { this.handleSubmit(); this.props.addTask(value) }} className="add" type="button">Add task</button>
             </div>
         )
     }

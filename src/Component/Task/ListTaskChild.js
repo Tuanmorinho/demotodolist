@@ -24,8 +24,7 @@ export default class ListTaskChild extends Component {
         this.setState({ projectId: this.props.listTask.propject, taskId: this.props.listTask._id });
     }
 
-    handleDelete = (e) => {
-        e.preventDefault();
+    handleDelete = () => {
         if (this.state.projectId === "" || this.state.taskId === "") {
             alert('This task cannot be deleted.');
         } else {
