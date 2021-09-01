@@ -23,6 +23,17 @@ class Tasks extends Component {
         return response.json()
     }
 
+    // deleteTask = async (url, data = {}) => {
+    //     const response = await fetch(url, {
+    //         method: "DELETE",
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(data)
+    //     });
+    //     return response.json();
+    // }
+
     async componentDidMount() {
         this.isComponentMounted = true;
         try {
@@ -70,10 +81,6 @@ class Tasks extends Component {
         console.log(this.props.location, this.props.match);
     }
 
-    // updateListTask = (vlaueee) => {
-
-    // }
-
     componentWillUnmount() {
         this.isComponentMounted = false;
     }
@@ -82,15 +89,16 @@ class Tasks extends Component {
         this.props.history.goBack();
     }
 
-    onClickAddTask = (value) => {
-        if (value === 'null') {
+    onClickUpdateTask = (value) => {
+        if (value === 0) {
             alert('Please enter a task.');
         }
-        if (value === 'clicked') {
-            this.componentDidMount(() => {
-                this.componentDidMount();
-            });
-            console.log("toang lần 2");
+        if (value === 1) {
+            this.componentDidMount();
+            console.log(this.state);
+        }
+        if (value === 2) {
+            alert('This task cannot be deleted.');
         }
     }
 
@@ -101,8 +109,8 @@ class Tasks extends Component {
                     <button onClick={this.handleBack}><img src={iconBack} alt="" /></button>
                     <h1>Tasks</h1>
                 </div>
-                <Input idProject={this.props.match.params.projectID} addTask={(value) => this.onClickAddTask(value)} />
-                <ListTask listTask={this.state.listTask} />
+                <Input idProject={this.props.match.params.projectID} addTask={(value) => this.onClickUpdateTask(value)} />
+                <ListTask listTask={this.state.listTask} deleteTask={(value) => this.onClickUpdateTask(value)} />
             </div>
         )
     }

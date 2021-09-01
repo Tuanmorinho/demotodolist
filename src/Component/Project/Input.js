@@ -25,11 +25,11 @@ export default class Input extends Component {
 
     handleSubmit = () => {
         if (this.state.name === "") {
-            this.props.addProject('null')
+            this.props.addProject(0);
         } else {
-            this.props.addProject('clicked')
             this.addProject('/project/create', this.state).then(data => {
                 console.log(data);
+                this.props.addProject(1);
             });
             this.setState({ name: '' });
         }
@@ -40,7 +40,7 @@ export default class Input extends Component {
             <div className="status">
                 <input className="newProject" onChange={this.handleGetProject} value={this.state.name} type="text" placeholder="New project" />
                 <button onClick={(value) => { this.handleSubmit(); this.props.addProject(value) }} className="add" type="submit">Add project</button>
-            </div >
+            </div>
         )
     }
 }

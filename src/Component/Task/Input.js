@@ -37,11 +37,11 @@ export default class Input extends Component {
 
     handleSubmit = () => {
         if (this.state.name === "" || this.state.content === "") {
-            this.props.addTask('null');
+            this.props.addTask(0);
         } else {
-            this.props.addTask('clicked');
             this.addTask('/task/create', this.state).then(data => {
                 console.log(data);
+                this.props.addTask(1);
             });
             this.setState({ name: '', content: '' })
         }

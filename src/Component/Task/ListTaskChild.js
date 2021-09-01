@@ -4,12 +4,12 @@ export default class ListTaskChild extends Component {
     constructor() {
         super();
         this.state = {
-            projectId: '',
-            taskId: ''
+            projectId: "",
+            taskId: ""
         }
     }
 
-    deleteTask = async (url = '', data = {}) => {
+    deleteTask = async (url, data = '') => {
         const response = await fetch(url, {
             method: "DELETE",
             headers: {
@@ -20,17 +20,18 @@ export default class ListTaskChild extends Component {
         return response.json();
     }
 
-    componentDidMount() {
-        this.setState({ projectId: this.props.listTask.propject, taskId: this.props.listTask._id });
-    }
-
     handleDelete = () => {
-        if (this.state.projectId === "" || this.state.taskId === "") {
-            alert('This task cannot be deleted.');
-        } else {
-            this.deleteTask('/task/delete', this.state).then(data => {
-                console.log(data);
-            });
+        if (window.confirm('Are you sure you want to delete this task?')) {
+            if (this.props.listTask._id === "") {
+                this.props.deleteTask2(2);
+            } else {
+                this.setState({ projectId: this.props.listTask.project, taskId: this.props.listTask._id }, () => {
+                    this.deleteTask('/task/delete', this.state).then(data => {
+                        console.log(data);
+                        this.props.deleteTask2(1);
+                    });
+                });
+            }
         }
     }
 
@@ -48,7 +49,7 @@ export default class ListTaskChild extends Component {
                 </div>
                 <div className="button">
                     <button className="edit-task">Edit</button>
-                    <button onClick={this.handleDelete} className="destroy">Delete</button>
+                    <button onClick={(value) => { this.handleDelete(); this.props.deleteTask2(value) }} className="destroy">Delete</button>
                 </div>
             </div>
         )

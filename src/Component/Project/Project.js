@@ -44,12 +44,11 @@ export default class Project extends Component {
     }
 
     onClickAddProject = (value) => {
-        if (value === 'null') {
+        if (value === 0) {
             alert('Please enter a project.');
         }
-        if (value === 'clicked') {
+        if (value === 1) {
             this.componentDidMount();
-            console.log("toang rồi");
         }
     }
 
