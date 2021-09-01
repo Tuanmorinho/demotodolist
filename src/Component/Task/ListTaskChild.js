@@ -22,7 +22,7 @@ export default class ListTaskChild extends Component {
 
     handleDelete = () => {
         if (window.confirm('Are you sure you want to delete this task?')) {
-            if (this.props.listTask._id === "") {
+            if (this.props.listTask.project === "" || this.props.listTask._id === "") {
                 this.props.deleteTask2(2);
             } else {
                 this.setState({ projectId: this.props.listTask.project, taskId: this.props.listTask._id }, () => {
