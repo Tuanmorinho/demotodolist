@@ -37,11 +37,11 @@ export default class Input extends Component {
 
     handleSubmit = () => {
         if (this.state.name === "" || this.state.content === "") {
-            this.props.addTask(0);
+            this.props.updateTask(0);
         } else {
             this.addTask('/task/create', this.state).then(data => {
                 console.log(data);
-                this.props.addTask(1);
+                this.props.updateTask(1);
             });
             this.setState({ name: '', content: '' })
         }
@@ -51,8 +51,8 @@ export default class Input extends Component {
         return (
             <div className="status">
                 <input onChange={this.handleGetTask} className="newTask" value={this.state.name} type="text" placeholder="New task" />
-                <input onChange={this.handleGetContent} className="content" value={this.state.content} type="text" placeholder="Content" />
-                <button onClick={(value) => { this.handleSubmit(); this.props.addTask(value) }} className="add" type="button">Add task</button>
+                <input onChange={this.handleGetContent} className="content" value={this.state.content} type="textarea" placeholder="Content" />
+                <button onClick={(value) => { this.handleSubmit(); this.props.updateTask(value) }} className="add" type="button">Add task</button>
             </div>
         )
     }

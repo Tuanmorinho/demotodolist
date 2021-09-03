@@ -23,12 +23,12 @@ export default class ListTaskChild extends Component {
     handleDelete = () => {
         if (window.confirm('Are you sure you want to delete this task?')) {
             if (this.props.listTask.project === "" || this.props.listTask._id === "") {
-                this.props.deleteTask2(2);
+                this.props.updateTask2(2);
             } else {
                 this.setState({ projectId: this.props.listTask.project, taskId: this.props.listTask._id }, () => {
                     this.deleteTask('/task/delete', this.state).then(data => {
                         console.log(data);
-                        this.props.deleteTask2(1);
+                        this.props.updateTask2(1);
                     });
                 });
             }
@@ -49,7 +49,7 @@ export default class ListTaskChild extends Component {
                 </div>
                 <div className="button">
                     <button className="edit-task">Edit</button>
-                    <button onClick={(value) => { this.handleDelete(); this.props.deleteTask2(value) }} className="destroy">Delete</button>
+                    <button onClick={(value) => { this.handleDelete(); this.props.updateTask2(value) }} className="destroy">Delete</button>
                 </div>
             </div>
         )

@@ -9,7 +9,7 @@ export default class ListTask extends Component {
                     {
                         this.props.listTask.map((valueListTask, index) => {
                             return (
-                                <ListTaskChild key={index} listTask={valueListTask} deleteTask2={(value) => this.props.deleteTask(value)} />
+                                <ListTaskChild key={index} listTask={valueListTask} updateTask2={(value) => this.props.updateTask(value)} />
                             );
                         })
                     }

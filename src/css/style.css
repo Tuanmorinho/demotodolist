@@ -11,7 +11,8 @@ h1{
 }
 h2,
 p,
-a{
+a,
+label{
 	color: #658ec6;
 	font-weight: 400;
 	opacity: 0.8;
@@ -102,23 +103,7 @@ main{
 .member h3,p{
 	font-size: 0.9rem;
 }
-/* .link{
-	display: flex;
-	margin: 2rem 0rem;
-	padding: 1rem 5rem;
-	cursor: pointer;
-	color: #FFFFFF;
-    text-decoration: none;
-}
-.link__choose{
-	background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
-}
-.link h2{
-	display: flex;
-	padding: 0rem 2rem;
-	text-align: left;
-	align-items: center;
-} */
+
 
 .listProject{
 	flex: 2;
@@ -188,34 +173,6 @@ main{
 	justify-content: flex-start;
 	align-items: center;
 }
-/* .dropdown{
-	max-height: 35px;
-	background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
-	border: none;
-	width: 25%;
-	padding: 0.6rem;
-	border-radius: 2rem;
-	margin-right: 2rem;
-}
-.dropdown__select{
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	cursor: pointer;
-}
-.dropdown__select:hover{
-	opacity: 0.8;
-}
-.dropdown__select span{
-	font-family: Arial, Helvetica, sans-serif;
-	font-weight: 520;
-	font-size: 13px;
-	color: #767576;
-	margin-left: 0.2rem;
-}
-.dropdown__select i{
-	color: #767576;
-} */
 
 .status input{
 	max-height: 35px;
@@ -359,4 +316,36 @@ input:focus {
 }
 .status-task3--disable{
 	opacity: 0.15;	
+}
+
+
+
+.back__edit{
+	background: wheat;
+	display: none;
+}
+
+.edit{
+	background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+	display: fixed;
+	z-index: 1;
+	max-width: 50%;
+}
+.edit__display{
+	display: none;
+}
+.edit__input{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+.edit__input input{
+	background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+	border: none;
+	padding: 0.5rem;
+	border-radius: 2rem;
+	margin-top: 1.5rem;
+}
+.edit__input label{
+	font-size: 0.9rem;
 }

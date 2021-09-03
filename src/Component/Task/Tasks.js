@@ -23,17 +23,6 @@ class Tasks extends Component {
         return response.json()
     }
 
-    // deleteTask = async (url, data = {}) => {
-    //     const response = await fetch(url, {
-    //         method: "DELETE",
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(data)
-    //     });
-    //     return response.json();
-    // }
-
     async componentDidMount() {
         this.isComponentMounted = true;
         try {
@@ -109,8 +98,8 @@ class Tasks extends Component {
                     <button onClick={this.handleBack}><img src={iconBack} alt="" /></button>
                     <h1>Tasks</h1>
                 </div>
-                <Input idProject={this.props.match.params.projectID} addTask={(value) => this.onClickUpdateTask(value)} />
-                <ListTask listTask={this.state.listTask} deleteTask={(value) => this.onClickUpdateTask(value)} />
+                <Input idProject={this.props.match.params.projectID} updateTask={(value) => this.onClickUpdateTask(value)} />
+                <ListTask listTask={this.state.listTask} updateTask={(value) => this.onClickUpdateTask(value)} />
             </div>
         )
     }
