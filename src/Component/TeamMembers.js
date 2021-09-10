@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { avatar1, avatar2, avatar3, avatar4 } from './Img';
+import { avatar1, avatar4 } from './Img';
 import TeamMemberChild from './TeamMemberChild';
 
 export default class TeamMembers extends Component {
@@ -11,16 +11,6 @@ export default class TeamMembers extends Component {
                     "avar": avatar1,
                     "name": "Tuan",
                     "position": "Leader"
-                },
-                {
-                    "avar": avatar2,
-                    "name": "Tai",
-                    "position": "Member"
-                },
-                {
-                    "avar": avatar3,
-                    "name": "Binh",
-                    "position": "Member"
                 },
                 {
                     "avar": avatar4,

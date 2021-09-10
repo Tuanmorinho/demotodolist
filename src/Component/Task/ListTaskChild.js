@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 export default class ListTaskChild extends Component {
     constructor() {
         super();
+        this.isShow = false;
         this.state = {
             projectId: "",
             taskId: ""
@@ -29,10 +30,16 @@ export default class ListTaskChild extends Component {
                     this.deleteTask('/task/delete', this.state).then(data => {
                         console.log(data);
                         this.props.updateTask2(1);
+                        console.log(this.state.delete);
                     });
                 });
             }
         }
+    }
+
+    handleShowEdit = () => {
+        this.isShow = true;
+        console.log(this.isShow);
     }
 
     render() {
@@ -48,7 +55,7 @@ export default class ListTaskChild extends Component {
                     </div>
                 </div>
                 <div className="button">
-                    <button className="edit-task">Edit</button>
+                    <button onClick={this.handleShowEdit} className="edit-task">Edit</button>
                     <button onClick={(value) => { this.handleDelete(); this.props.updateTask2(value) }} className="destroy">Delete</button>
                 </div>
             </div>
