@@ -239,6 +239,7 @@ input:focus {
 .all{
 	border-radius: 1rem;
 }
+
 .card{
 	display: flex;
 	justify-content: space-between;
@@ -361,4 +362,105 @@ input:focus {
 }
 .search:hover{
 	opacity: 0.75;
+}
+
+
+
+
+
+.edit-form {
+	background-color: whitesmoke;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+	border-radius: 1rem;
+	padding: 1.5rem 1.5rem;
+	max-width: 20rem;
+	margin: 0;
+}
+.disable-edit {
+	display: none;
+}
+
+.edit-form__container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.edit-form__form {
+	width: 100%;
+}
+.edit-form__group {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 1.5rem;
+}
+.edit-form__group-radio {
+	display: flex;
+	align-items: center;
+	padding: 0.3rem 0.6rem 0.3rem 0.6rem;
+	border-radius: 1rem;
+	background-color: white;
+}
+.edit-form__group-radio label {
+	margin-left: 0.3rem;
+}
+.edit-form__group-radio input {
+    cursor: pointer;
+	box-shadow: none !important;
+}
+.edit-form__input {
+	width: 100%;
+	padding: 0.8rem;
+	height: 2rem;
+	margin-top: 1rem;
+	border-style: hidden;
+	border-radius: 1rem;
+}
+
+.radio-label{
+	font-size: 0.85rem;
+	color: white;
+}
+.radio-label__1{
+	color: #F0678A;
+}
+.radio-label__2{
+	color: #FFB954;
+}
+.radio-label__3{
+	color: #78E388;
+}
+
+.edit-form__controls {
+	margin-top: 2rem;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.edit-form__btn {
+	border: none;
+	width: 5rem;
+	height: 1.8rem;
+	border-radius: 2rem;
+	cursor: pointer;
+	transition: opacity 0.2s ease;
+	color: white;
+} 
+.edit-form__btn:hover {
+	opacity: 0.75;
+}
+.cancel {
+	background: gray;
+	opacity: 0.25;
+}
+.submit {
+	background: #426696;
+	opacity: 0.8;
 }
