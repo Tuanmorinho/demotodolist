@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
+import Edit from './Edit';
 
 export default class ListTaskChild extends Component {
     constructor() {
         super();
-        this.isShow = false;
         this.state = {
             projectId: "",
-            taskId: ""
+            taskId: "",
+            mode: 'edit-form disable-edit'
         }
     }
 
@@ -27,10 +28,8 @@ export default class ListTaskChild extends Component {
                 this.props.updateTask2(2);
             } else {
                 this.setState({ projectId: this.props.listTask.project, taskId: this.props.listTask._id }, () => {
-                    this.deleteTask('/task/delete', this.state).then(data => {
-                        console.log(data);
+                    this.deleteTask('/task/delete', this.state).then(() => {
                         this.props.updateTask2(1);
-                        console.log(this.state.delete);
                     });
                 });
             }
@@ -38,27 +37,35 @@ export default class ListTaskChild extends Component {
     }
 
     handleShowEdit = () => {
-        this.isShow = true;
-        console.log(this.isShow);
+        this.setState({ mode: 'edit-form' });
+    }
+
+    cancelEditForm = (value) => {
+        this.setState({mode: value}, () => {
+            this.render();
+        });
     }
 
     render() {
         return (
-            <div className="card">
-                <div className="card-info">
-                    <h2>{this.props.listTask.name}</h2>
-                    <div className="status-task">Content:&ensp;{this.props.listTask.content}</div>
-                    <div className="status-task">Status:
-                        <div className={this.props.listTask.status1}>TODO</div>
-                        <div className={this.props.listTask.status2}>DOING</div>
-                        <div className={this.props.listTask.status3}>DONE</div>
+            <React.Fragment>
+                <div className="card">
+                    <div className="card-info">
+                        <h2>{this.props.listTask.name}</h2>
+                        <div className="status-task">Content:&ensp;{this.props.listTask.content}</div>
+                        <div className="status-task">Status:
+                            <div className={this.props.listTask.status1}>TODO</div>
+                            <div className={this.props.listTask.status2}>DOING</div>
+                            <div className={this.props.listTask.status3}>DONE</div>
+                        </div>
+                    </div>
+                    <div className="button">
+                        <button onClick={this.handleShowEdit} className="edit-task">Edit</button>
+                        <button onClick={(value) => { this.handleDelete(); this.props.updateTask2(value) }} className="destroy">Delete</button>
                     </div>
                 </div>
-                <div className="button">
-                    <button onClick={this.handleShowEdit} className="edit-task">Edit</button>
-                    <button onClick={(value) => { this.handleDelete(); this.props.updateTask2(value) }} className="destroy">Delete</button>
-                </div>
-            </div>
+                <Edit showEditForm={this.state.mode} cancel={(value) => this.cancelEditForm(value)}/>
+            </React.Fragment>
         )
     }
 }
