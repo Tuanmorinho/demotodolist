@@ -26,49 +26,46 @@ class Edit extends Component {
         return response.json();
     }
 
+    editTask = async (url = '', data = {}) => {
+        const response = await fetch(url, {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        return response.json();
+    }
+
     async getTaskEditData() {
-        let data = await this.getTaskEdit('/task/get/' + this.props.match.params.taskID);
-        if (data.status === 0) {
-            data = {
-                ...data,
-                status1: 'status-task1',
-                status2: 'status-task2 status-task2--disable',
-                status3: 'status-task3 status-task3--disable'
-            };
-        } else if (data.status === 1) {
-            data = {
-                ...data,
-                status1: 'status-task1 status-task1--disable',
-                status2: 'status-task2',
-                status3: 'status-task3 status-task3--disable'
-            };
-        } else {
-            data = {
-                ...data,
-                status1: 'status-task1 status-task1--disable',
-                status2: 'status-task2 status-task2--disable',
-                status3: 'status-task3'
-            };
-        }
+        const data = await this.getTaskEdit('/task/get/' + this.props.match.params.taskID);
         this.setState({
             getTask: data
         });
     }
 
     getNewTaskName = (e) => {
-        this.setState({ name: e.target.value });
+        this.setState({ edit: { ...this.state.edit, name: e.target.value } });
     }
 
     getNewTaskContent = (e) => {
-        this.setState({ content: e.target.value });
+        this.setState({ edit: { ...this.state.edit, content: e.target.value } });
     }
 
-    handleCancel = () => {
-
+    handleCheck = (e) => {
+        this.setState({ edit: { ...this.state.edit, status: e.target.value } }, () => {
+            this.render()
+        });
     }
 
     handleSave = () => {
-
+        if (this.state.edit.name === '' || this.state.edit.name === '') {
+            alert('Name or content of task is being empty.');
+        } else {
+            this.editTask('/task/edit', this.state.edit).then(() => {
+                this.props.history.goBack();
+            })
+        }
     }
 
     handleBack = () => {
@@ -76,10 +73,12 @@ class Edit extends Component {
     }
 
     componentDidMount() {
-        const { match, location } = this.props;
-        console.log(location, match);
-
-        this.getTaskEditData();
+        this.getTaskEditData().then(() => {
+            this.setState({ edit: { ...this.state.edit, id: this.props.match.params.taskID } });
+            this.setState({ edit: { ...this.state.edit, name: this.state.getTask.name } });
+            this.setState({ edit: { ...this.state.edit, content: this.state.getTask.content } });
+            this.setState({ edit: { ...this.state.edit, status: this.state.getTask.status } });
+        });
     }
 
     render() {
@@ -100,21 +99,52 @@ class Edit extends Component {
                         <div className="edit-form__form">
                             <div className="edit-form_input">
                                 <label>Name task:</label>
-                                <input onChange={this.getNewTaskName} type="text" className="edit-form__input" placeholder="New name task" defaultValue={this.state.getTask.name} />
+                                <input
+                                    onChange={this.getNewTaskName}
+                                    type="text" className="edit-form__input"
+                                    placeholder="New name task"
+                                    defaultValue={this.state.getTask.name}
+                                />
                             </div>
                             <div className="edit-form_input">
                                 <label>Content task:</label>
-                                <input onChange={this.getNewTaskContent} type="textarea" className="edit-form__input" placeholder="New content" defaultValue={this.state.getTask.content} />
+                                <input
+                                    onChange={this.getNewTaskContent}
+                                    type="textarea" className="edit-form__input"
+                                    placeholder="New content"
+                                    defaultValue={this.state.getTask.content}
+                                />
                             </div>
                             <div className="edit-form__group">
                                 <div className="edit-form__group-radio edit-form__group-radio__1">
-                                    <input type="radio" className="edit-form__input-radio" name="status" value="TODO" /><label className="radio-label">Todo</label>
+                                    <input
+                                        type="radio"
+                                        className="edit-form__input-radio"
+                                        name="status"
+                                        value={0}
+                                        onChange={this.handleCheck}
+                                    />
+                                    <label className="radio-label">Todo</label>
                                 </div>
                                 <div className="edit-form__group-radio edit-form__group-radio__2">
-                                    <input type="radio" className="edit-form__input-radio" name="status" value="DOING" /><label className="radio-label">Doing</label>
+                                    <input
+                                        type="radio"
+                                        className="edit-form__input-radio"
+                                        name="status"
+                                        value={1}
+                                        onChange={this.handleCheck}
+                                    />
+                                    <label className="radio-label">Doing</label>
                                 </div>
                                 <div className="edit-form__group-radio edit-form__group-radio__3">
-                                    <input type="radio" className="edit-form__input-radio" name="status" value="DONE" /><label className="radio-label">Done</label>
+                                    <input
+                                        type="radio"
+                                        className="edit-form__input-radio"
+                                        name="status"
+                                        value={2}
+                                        onChange={this.handleCheck}
+                                    />
+                                    <label className="radio-label">Done</label>
                                 </div>
                             </div>
                         </div>

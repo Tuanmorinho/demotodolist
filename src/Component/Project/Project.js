@@ -59,7 +59,6 @@ export default class Project extends Component {
         const data2 = await this.getListProject('/project/get');
         let dataSearch1 = [];
         let dataSearch2 = [];
-        // Mỗi lần nhảy i, searchProject được gọi lại, vì vậy nếu tên trùng càng nhiều, time chạy càng lâu
         for (var i = 0; i < data2.length; i++) {
             if (data2[i].name === this.state.nameProject) {
                 dataSearch2 = [...dataSearch1, ...dataSearch2.concat(await this.searchProject('/project/get/' + data2[i]._id))];

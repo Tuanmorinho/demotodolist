@@ -144,7 +144,6 @@ class Tasks extends Component {
         } catch (error) {
             console.log('Failed to fetch data', error);
         }
-        console.log(this.props.location, this.props.match);
     }
 
     componentWillUnmount() {
@@ -161,7 +160,6 @@ class Tasks extends Component {
         }
         if (value === 1) {
             this.componentDidMount(0);
-            console.log(this.state);
         }
         if (value === 2) {
             alert('This task cannot be deleted.');

@@ -27,8 +27,7 @@ export default class Input extends Component {
         if (this.state.name === "") {
             this.props.addProject(0);
         } else {
-            this.addProject('/project/create', this.state).then(data => {
-                console.log(data);
+            this.addProject('/project/create', this.state).then(() => {
                 this.props.addProject(1);
             });
             this.setState({ name: '' });
