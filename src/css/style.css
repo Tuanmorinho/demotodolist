@@ -249,6 +249,7 @@ input:focus {
 	margin: 2rem 0rem;
 	margin-right: 1rem;
 	padding: 2rem;
+	box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.5px;
 }
 .button{
 	display: flex;
@@ -373,53 +374,40 @@ input:focus {
 	justify-content: center;
 	align-items: center;
 	margin-right: 1rem;
-	position: relative;
-	margin-bottom: 2rem;
-}
-.disable-edit {
-	display: none;
-}
-
-.edit-form::after{
-	content: "";
-	display: block;
-	position: absolute;
-	left: 62%;
-	top: -9.5%;
-
-	width: 0;
-	height: 0;
-	border-left: 18px solid transparent;
-	border-right: 18px solid transparent;
-	border-bottom: 30px solid #fff;
+	margin-top: 5rem;
 }
 
 .edit-form__container {
-	background: white;
+	background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
 	border-radius: 1rem;
-	padding: 1rem 1.5rem;
+	padding: 2rem 3rem;
 	margin: 0;
-	max-width: 25rem;
+	width: 45rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
+
+.edit-form__heading {
+	font-size: 1.5rem;
+}
+
 .edit-form__form {
 	width: 100%;
 }
 .edit-form__group {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
-	margin-top: 1.5rem;
+	margin-top: 2.5rem;
 }
 .edit-form__group-radio {
 	display: flex;
 	align-items: center;
-	padding: 0.3rem 1rem 0.3rem 1rem;
-	border-radius: 1rem;
+	padding: 0.3rem 1.5rem 0.3rem 1.5rem;
+	border-radius: 2rem;
 }
 .edit-form__group-radio label {
 	margin-left: 0.7rem;
@@ -437,48 +425,58 @@ input:focus {
 .edit-form__group-radio__3{
 	background: #78E388;
 }
+
+.edit-form_input {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-top: 2rem;
+}
+.edit-form_input label {
+	color: #426696;
+}
+
 .edit-form__input {
-	width: 100%;
-	padding: 0.8rem;
+	font-size: 0.9rem;
+	padding: 1.2rem;
+	width: 79%;
 	height: 2rem;
-	margin-top: 1.5rem;
+	margin-left: 1rem;
 	border-style: hidden;
-	border-radius: 1rem;
-	background: rgba(66, 102, 150, 0.03);
-	box-shadow: rgba(66, 102, 150, 0.2) 0px 2px 7px 0px;
+	border-radius: 2rem;
+	background: white;
+	box-shadow: rgba(100, 100, 111, 0.18) 0px 7px 16px 0px;
+}
+.edit-form__input:focus {
+	box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 10px;
 }
 
 .radio-label{
-	font-size: 0.85rem;
+	font-size: 1rem;
 	color: white;
 }
 
 
 .edit-form__controls {
-	margin-top: 2rem;
-	width: 100%;
+	margin-top: 4rem;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 }
 
 .edit-form__btn {
+	font-size: 1rem;
+	font-weight: 600;
 	border: none;
-	width: 6rem;
-	height: 1.8rem;
+	width: 8rem;
+	height: 2rem;
 	border-radius: 2rem;
 	cursor: pointer;
 	transition: opacity 0.2s ease;
 	color: white;
+	background: #426696;
+	opacity: 0.8;
 } 
 .edit-form__btn:hover {
 	opacity: 0.75;
-}
-.cancel {
-	background: #426696;
-	opacity: 0.4;
-}
-.submit {
-	background: #f15a24;
-	opacity: 0.8;
 }

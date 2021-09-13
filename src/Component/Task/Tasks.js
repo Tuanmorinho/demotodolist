@@ -182,7 +182,7 @@ class Tasks extends Component {
                     </div>
                 </div>
                 <Input idProject={this.props.match.params.projectID} updateTask={(value) => this.onClickUpdateTask(value)} />
-                <ListTask listTask={this.state.listTask} updateTask={(value) => this.onClickUpdateTask(value)} />
+                <ListTask urlProject={this.props.location.pathname} listTask={this.state.listTask} updateTask={(value) => this.onClickUpdateTask(value)} />
             </div>
         )
     }

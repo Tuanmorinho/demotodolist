@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-import Edit from './Edit';
+import { Link } from 'react-router-dom'
 
 export default class ListTaskChild extends Component {
     constructor() {
         super();
         this.state = {
             projectId: "",
-            taskId: "",
-            mode: 'edit-form disable-edit'
+            taskId: ""
         }
     }
 
@@ -36,36 +35,23 @@ export default class ListTaskChild extends Component {
         }
     }
 
-    handleShowEdit = () => {
-        this.setState({ mode: 'edit-form' });
-    }
-
-    cancelEditForm = (value) => {
-        this.setState({mode: value}, () => {
-            this.render();
-        });
-    }
-
     render() {
         return (
-            <React.Fragment>
-                <div className="card">
-                    <div className="card-info">
-                        <h2>{this.props.listTask.name}</h2>
-                        <div className="status-task">Content:&ensp;{this.props.listTask.content}</div>
-                        <div className="status-task">Status:
-                            <div className={this.props.listTask.status1}>TODO</div>
-                            <div className={this.props.listTask.status2}>DOING</div>
-                            <div className={this.props.listTask.status3}>DONE</div>
-                        </div>
-                    </div>
-                    <div className="button">
-                        <button onClick={this.handleShowEdit} className="edit-task">Edit</button>
-                        <button onClick={(value) => { this.handleDelete(); this.props.updateTask2(value) }} className="destroy">Delete</button>
+            <div className="card">
+                <div className="card-info">
+                    <h2>{this.props.listTask.name}</h2>
+                    <div className="status-task">Content:&ensp;{this.props.listTask.content}</div>
+                    <div className="status-task">Status:
+                        <div className={this.props.listTask.status1}>TODO</div>
+                        <div className={this.props.listTask.status2}>DOING</div>
+                        <div className={this.props.listTask.status3}>DONE</div>
                     </div>
                 </div>
-                <Edit showEditForm={this.state.mode} cancel={(value) => this.cancelEditForm(value)}/>
-            </React.Fragment>
+                <div className="button">
+                    <Link to={`${this.props.urlProject2}/${this.props.listTask._id}`}><button className="edit-task">Edit</button></Link>
+                    <button onClick={(value) => { this.handleDelete(); this.props.updateTask2(value) }} className="destroy">Delete</button>
+                </div>
+            </div>
         )
     }
 }
