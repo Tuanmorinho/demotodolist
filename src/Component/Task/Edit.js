@@ -5,6 +5,7 @@ import { iconBack } from '../Img';
 class Edit extends Component {
     constructor() {
         super();
+        this.isComponentMouted = false;
         this.state = {
             getTask: [],
             edit: {
@@ -12,7 +13,8 @@ class Edit extends Component {
                 name: '',
                 content: '',
                 status: ''
-            }
+            },
+            statuscheck: ''
         }
     }
 
@@ -53,18 +55,18 @@ class Edit extends Component {
     }
 
     handleCheck = (e) => {
-        this.setState({ edit: { ...this.state.edit, status: e.target.value } }, () => {
-            this.render()
-        });
+        this.setState({ statuscheck: e.target.value });
     }
 
     handleSave = () => {
         if (this.state.edit.name === '' || this.state.edit.name === '') {
             alert('Name or content of task is being empty.');
         } else {
-            this.editTask('/task/edit', this.state.edit).then(() => {
-                this.props.history.goBack();
-            })
+            this.setState({ edit: { ...this.state.edit, status: this.state.statuscheck } }, () => {
+                this.editTask('/task/edit', this.state.edit).then(() => {
+                    this.props.history.goBack();
+                })
+            });
         }
     }
 
@@ -73,12 +75,20 @@ class Edit extends Component {
     }
 
     componentDidMount() {
-        this.getTaskEditData().then(() => {
-            this.setState({ edit: { ...this.state.edit, id: this.props.match.params.taskID } });
-            this.setState({ edit: { ...this.state.edit, name: this.state.getTask.name } });
-            this.setState({ edit: { ...this.state.edit, content: this.state.getTask.content } });
-            this.setState({ edit: { ...this.state.edit, status: this.state.getTask.status } });
-        });
+        this.isComponentMouted = true;
+        if (this.isComponentMouted) {
+            this.getTaskEditData().then(() => {
+                this.setState({ edit: { ...this.state.edit, id: this.props.match.params.taskID } });
+                this.setState({ edit: { ...this.state.edit, name: this.state.getTask.name } });
+                this.setState({ edit: { ...this.state.edit, content: this.state.getTask.content } });
+                this.setState({ edit: { ...this.state.edit, status: this.state.getTask.status } });
+                console.log(this.state.edit);
+            });
+        }
+    }
+
+    componentWillUnmount() {
+        this.isComponentMounted = false;
     }
 
     render() {
