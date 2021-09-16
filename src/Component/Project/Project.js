@@ -107,10 +107,12 @@ export default class Project extends Component {
         return (
             <div className="listProject">
                 <div className="statuss__search">
-                    <h1>Projects</h1>
+                    <div className="listProject__btnBack">
+                        <h1>Projects</h1>
+                    </div>
                     <div className="statuss">
                         <input onChange={this.handleSearchProject} className="newProject" value={this.state.nameProject} type="text" placeholder="Search" />
-                        <button onClick={this.handleSearch} className="search" type="submit"><img src={search1x} alt=''/></button>
+                        <button onClick={this.handleSearch} className="search" type="submit"><img src={search1x} alt='' /></button>
                     </div>
                 </div>
                 <Input addProject={(value) => this.onClickUpdateListProject(value)} />

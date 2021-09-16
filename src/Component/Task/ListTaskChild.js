@@ -38,16 +38,16 @@ export default class ListTaskChild extends Component {
     render() {
         return (
             <div className="card">
-                <div className="card-info">
+                <div className="card-info2">
                     <h2>{this.props.listTask.name}</h2>
-                    <div className="status-task">Content:&ensp;{this.props.listTask.content}</div>
+                    <div className="status-task-content">Content:&ensp;{this.props.listTask.content}</div>
                     <div className="status-task">Status:
                         <div className={this.props.listTask.status1}>TODO</div>
                         <div className={this.props.listTask.status2}>DOING</div>
                         <div className={this.props.listTask.status3}>DONE</div>
                     </div>
                 </div>
-                <div className="button">
+                <div className="button2">
                     <Link to={`${this.props.urlProject2}/${this.props.listTask._id}`}><button className="edit-task">Edit</button></Link>
                     <button onClick={(value) => { this.handleDelete(); this.props.updateTask2(value) }} className="destroy">Delete</button>
                 </div>
