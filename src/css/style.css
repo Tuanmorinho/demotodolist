@@ -676,6 +676,7 @@ input:focus {
 	}
 	
 	.edit-form__form {
+		margin-top: 1rem;
 		width: 100%;
 	}
 	.edit-form__group {
@@ -713,7 +714,7 @@ input:focus {
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
-		align-items: flex-start;
+		align-items: center;
 		margin-top: 1rem;
 		margin-bottom: 1.6rem;
 	}
@@ -803,22 +804,22 @@ input:focus {
 
 	/* Main */
 	.listProject {
-		margin-left: 9px;
-	    margin-right: 9px;
+		margin-left: 20px;
+	    margin-right: 20px;
 	    display: flex;
 	    flex-direction: column;
 	    justify-content: flex-start;
 		width: 100%;
 	}
 	.statuss__search {
-		margin-top: 1.4rem;
+		margin-top: 2.5rem;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: center;
 	}
 	.statuss__search h1 {
-		font-size: 1.5rem;
+		font-size: 2rem;
 	}
 
 
@@ -828,7 +829,7 @@ input:focus {
 		margin-left: 1.4rem;
 	}
 	.listProject__btnBack button {
-		margin-right: 0.5rem;
+		margin-right: 1rem;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -861,7 +862,7 @@ input:focus {
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		margin-top: 1rem;
+		margin-top: 2.5rem;
 		margin-bottom: 0;
 	}
 	.status input {
@@ -869,13 +870,14 @@ input:focus {
 		padding: 0.5rem;
 		font-size: 12px;
 		margin: 0;
-		margin-bottom: 0.75rem;
+		margin-bottom: 1.3rem;
 		box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 16px 0px;
 	}
 	.status button {
 		padding: 0.35rem;
 		font-size: 12px;
 		margin: 0;
+		margin-top: 0.45rem;
 	}
 
 
@@ -883,7 +885,7 @@ input:focus {
 	.all {
 		border-radius: 1.6rem;
 		margin-bottom: 9px;
-		margin-top: 1.2rem;
+		margin-top: 3rem;
 	}
 	.all{
 		overflow-y: scroll;
@@ -904,9 +906,10 @@ input:focus {
 
 	.button2 {
 		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
+		flex-direction: row;
+		justify-content: flex-end;
 		align-items: center;
+		margin-bottom: 0;
 	}
 	.button2 a {
 		margin-top: 3px;
@@ -950,31 +953,13 @@ input:focus {
 		border-radius: 1rem;
 		margin-left: 10px;
 	}
-	.status-task1{
-		background-color: #F0678A;
-	}
-	.status-task1--disable{
-		display: none;
-	}
-	.status-task2{
-		background-color: #FFB954;
-	}
-	.status-task2--disable{
-		display: none;
-	}
-	.status-task3{
-		background-color: #78E388;
-	}
-	.status-task3--disable{
-		display: none;
-	}
 
 
 	/* Edit form */
 	.edit-form {
 		width: 100%;
 		margin-right: 0;
-		margin-top: 2rem;
+		margin-top: 5.5rem;
 	}
 	
 	.edit-form__container {
@@ -995,6 +980,7 @@ input:focus {
 	
 	.edit-form__form {
 		width: 100%;
+		margin-top: 1.5rem;
 	}
 	.edit-form__group {
 		display: flex;
@@ -1006,32 +992,20 @@ input:focus {
 	.edit-form__group-radio {
 		display: flex;
 		align-items: center;
-		padding: 0.3rem 1rem 0.3rem 1rem;
+		padding: 0.3rem 1.2rem 0.3rem 1.2rem;
 		border-radius: 2rem;
 	}
 	.edit-form__group-radio label {
-		font-size: 12px;
-		margin-left: 0.3rem;
+		font-size: 14px;
+		margin-left: 0.7rem;
 	}
-	.edit-form__group-radio input {
-		cursor: pointer;
-		box-shadow: none !important;
-	}
-	.edit-form__group-radio__1{
-		background: #F0678A;
-	}
-	.edit-form__group-radio__2{
-		background: #FFB954;
-	}
-	.edit-form__group-radio__3{
-		background: #78E388;
-	}
+	
 	
 	.edit-form_input {
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
-		align-items: flex-start;
+		align-items: center;
 		margin-top: 1rem;
 		margin-bottom: 1.6rem;
 	}
@@ -1070,7 +1044,7 @@ input:focus {
 	}
 	
 	.edit-form__btn {
-		font-size: 12px;
+		font-size: 14px;
 		font-weight: 600;
 		border: none;
 		width: 6rem;
@@ -1101,7 +1075,7 @@ input:focus {
 		left: 3%;
 	}
 	.glass {
-	    height: 90vh;
+	    height: 88vh;
 	    width: 80%;
     }
 	.status {
@@ -1111,16 +1085,6 @@ input:focus {
 	.card {
 		margin-top: 0;
 		margin-bottom: 2rem;
-	}
-
-	
-    .edit-form {
-	    margin-right: 0rem;
-	}
-
-    .edit-form__container {
-	    margin: 0;
-	    width: 100%;
 	}
 }
 
@@ -1138,12 +1102,6 @@ input:focus {
 		margin-top: 0;
 		margin-bottom: 2rem;
 	}
-
-
-
-
-
-
 	.all{
 		overflow-y: scroll;
 		mask-image: linear-gradient(to top, transparent, black),
