@@ -2,7 +2,6 @@
   "name": "demotodolist",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://todolist-demo-nuce.herokuapp.com/todolist",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",

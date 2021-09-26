@@ -4,6 +4,7 @@ import Input from './Input'
 import ListTask from './ListTask'
 import { withRouter } from "react-router"
 import { iconBack } from '../Img'
+import { url } from '../constant';
 
 class Tasks extends Component {
     constructor() {
@@ -48,7 +49,7 @@ class Tasks extends Component {
     }
 
     async getData() {
-        const data = await this.getListTask("/task/get");
+        const data = await this.getListTask(url + "/todolist/task/get");
         for (var i = 0; i < data.length; i++) {
             if (data[i].status === 0) {
                 data[i] = {
@@ -87,13 +88,13 @@ class Tasks extends Component {
     }
 
     async getSearchData() {
-        const data2 = await this.getListTask("/task/get");
+        const data2 = await this.getListTask(url + "/todolist/task/get");
         let dataSearch1 = [];
         let dataSearch2 = [];
         for (var i = 0; i < data2.length; i++) {
             if (data2[i].project === this.props.match.params.projectID
                 && data2[i].name === this.state.nameTask) {
-                dataSearch2 = [...dataSearch1, ...dataSearch2.concat(await this.searchTask('/task/get/' + data2[i]._id))];
+                dataSearch2 = [...dataSearch1, ...dataSearch2.concat(await this.searchTask(url + '/todolist/task/get/' + data2[i]._id))];
             }
         }
         for (i = 0; i < dataSearch2.length; i++) {

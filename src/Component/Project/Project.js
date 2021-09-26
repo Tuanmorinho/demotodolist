@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { url } from '../constant';
 import { search1x } from '../Img';
 import Input from './Input'
 import ListProject from './ListProject'
@@ -46,7 +47,7 @@ export default class Project extends Component {
     }
 
     async getData() {
-        const data = await this.getListProject('/project/get');
+        const data = await this.getListProject(url + '/todolist/project/get');
         var sortData = data.sort((a, b) => {
             return new Date(a.data).getTime() - new Date(b.data).getTime();
         }).reverse();
@@ -56,12 +57,12 @@ export default class Project extends Component {
     }
 
     async getSearchData() {
-        const data2 = await this.getListProject('/project/get');
+        const data2 = await this.getListProject(url + '/todolist/project/get');
         let dataSearch1 = [];
         let dataSearch2 = [];
         for (var i = 0; i < data2.length; i++) {
             if (data2[i].name === this.state.nameProject) {
-                dataSearch2 = [...dataSearch1, ...dataSearch2.concat(await this.searchProject('/project/get/' + data2[i]._id))];
+                dataSearch2 = [...dataSearch1, ...dataSearch2.concat(await this.searchProject(url + '/todolist/project/get/' + data2[i]._id))];
             }
         }
         var sortData2 = dataSearch2.sort((a, b) => {

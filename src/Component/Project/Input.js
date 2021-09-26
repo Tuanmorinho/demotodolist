@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { url } from '../constant';
 
 export default class Input extends Component {
     constructor() {
@@ -27,7 +28,7 @@ export default class Input extends Component {
         if (this.state.name === "") {
             this.props.addProject(0);
         } else {
-            this.addProject('/project/create', this.state).then(() => {
+            this.addProject(url + '/todolist/project/create', this.state).then(() => {
                 this.props.addProject(1);
             });
             this.setState({ name: '' });

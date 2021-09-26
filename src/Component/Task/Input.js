@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import "react-responsive-combo-box/dist/index.css"
+import { url } from '../constant';
 
 export default class Input extends Component {
     constructor() {
@@ -39,7 +40,7 @@ export default class Input extends Component {
         if (this.state.name === "" || this.state.content === "") {
             this.props.updateTask(0);
         } else {
-            this.addTask('/task/create', this.state).then(() => {
+            this.addTask(url +'/todolist/task/create', this.state).then(() => {
                 this.props.updateTask(1);
             });
             this.setState({ name: '', content: '' })

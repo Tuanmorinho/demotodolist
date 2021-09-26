@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from "react-router"
 import { iconBack } from '../Img';
+import { url } from '../constant'
 
 class Edit extends Component {
     constructor() {
@@ -40,7 +41,7 @@ class Edit extends Component {
     }
 
     async getTaskEditData() {
-        const data = await this.getTaskEdit('/task/get/' + this.props.match.params.taskID);
+        const data = await this.getTaskEdit(url + '/todolist/task/get/' + this.props.match.params.taskID);
         this.setState({
             getTask: data
         });
@@ -59,11 +60,11 @@ class Edit extends Component {
     }
 
     handleSave = () => {
-        if (this.state.edit.name === '' || this.state.edit.name === '') {
+        if (this.state.edit.name === '' || this.state.edit.content === '') {
             alert('Name or content of task is being empty.');
         } else {
             this.setState({ edit: { ...this.state.edit, status: this.state.statuscheck } }, () => {
-                this.editTask('/task/edit', this.state.edit).then(() => {
+                this.editTask(url +'/todolist/task/edit', this.state.edit).then(() => {
                     this.props.history.goBack();
                 })
             });

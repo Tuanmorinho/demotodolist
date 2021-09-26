@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { url } from '../constant';
 
 export default class ListTaskChild extends Component {
     constructor() {
@@ -27,7 +28,7 @@ export default class ListTaskChild extends Component {
                 this.props.updateTask2(2);
             } else {
                 this.setState({ projectId: this.props.listTask.project, taskId: this.props.listTask._id }, () => {
-                    this.deleteTask('/task/delete', this.state).then(() => {
+                    this.deleteTask(url +'/task/delete', this.state).then(() => {
                         this.props.updateTask2(1);
                     });
                 });
