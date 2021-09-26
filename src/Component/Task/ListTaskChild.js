@@ -28,7 +28,7 @@ export default class ListTaskChild extends Component {
                 this.props.updateTask2(2);
             } else {
                 this.setState({ projectId: this.props.listTask.project, taskId: this.props.listTask._id }, () => {
-                    this.deleteTask(url +'/task/delete', this.state).then(() => {
+                    this.deleteTask(url +'/todolist/task/delete', this.state).then(() => {
                         this.props.updateTask2(1);
                     });
                 });
